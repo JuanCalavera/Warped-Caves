@@ -6,11 +6,19 @@ public class CharacterController : MonoBehaviour
 {
     private int _animcontrl;
     private Animator _anim;
-    private float _speed = 5f;
+    private float _speed = 1.5f, _jump = 3f;
+    protected Rigidbody2D _rgb2d;
+    protected Vector2 _velocity;
+
+    private void OnEnable()
+    {
+        _rgb2d = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+    }
 
     void Start()
     {
-        _anim = GameObject.Find("player").GetComponent<Animator>();
+       
     }
 
     void Update()
@@ -33,7 +41,7 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 _animcontrl = 1;
-                transform.Translate(Vector2.up * _speed * Time.deltaTime);
+                transform.Translate(Vector2.up * _jump * Time.deltaTime);
             }
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
@@ -47,7 +55,7 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 _animcontrl = 1;
-                transform.Translate(Vector2.up * _speed * Time.deltaTime);
+                transform.Translate(Vector2.up * _jump * Time.deltaTime);
             }
 
         }
@@ -58,7 +66,7 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 _animcontrl = 2;
-                transform.Translate(Vector2.up * _speed * Time.deltaTime);
+                transform.Translate(Vector2.up * _jump * Time.deltaTime);
             }
         }
     }
