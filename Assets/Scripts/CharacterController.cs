@@ -7,18 +7,11 @@ public class CharacterController : MonoBehaviour
     private int _animcontrl;
     private Animator _anim;
     private float _speed = 1.5f, _jump = 3f;
-    protected Rigidbody2D _rgb2d;
-    protected Vector2 _velocity;
+
 
     private void OnEnable()
     {
-        _rgb2d = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
-       
     }
 
     void Update()
